@@ -1,0 +1,9 @@
+<resources>
+    <string name="feature_home">Home</string>
+    <string name="feature_credit_agricole_label">Credit Agricole</string>
+    <string name="feature_other_banks_label">Autres Banques</string>
+    <string name="feature_my_accounts_label">Mes Comptes</string>
+    <string name="feature_loading_label">Loading...</string>
+    <string name="feature_error_label">Error</string>
+    <string name="feature_error_fetching_data">Error fetching data</string>
+</resources>

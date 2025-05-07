@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -20,5 +21,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "OnlineBank"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
- 
+include(":core:data")
+include(":core:domain")
+include(":core:common")
+include(":feature")
