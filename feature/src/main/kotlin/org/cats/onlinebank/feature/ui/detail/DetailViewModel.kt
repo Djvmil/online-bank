@@ -18,6 +18,8 @@ import org.cats.onlinebank.core.data.source.remote.model.AccountApiModel
 import org.cats.onlinebank.domain.usecase.GetAccountDetailUseCase
 import org.cats.onlinebank.feature.navigation.DestinationsArgs
 import org.cacts.onlinebank.feature.R
+import org.cats.onlinebank.feature.ui.home.model.UiAccountModel
+import org.cats.onlinebank.feature.ui.home.model.toUiAccountModel
 
 private const val TAG = "DetailViewModel"
 class DetailViewModel(
@@ -26,7 +28,7 @@ class DetailViewModel(
     private val resProvider: ResourcesProvider,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-  private val _uiState = MutableStateFlow<OBResult<AccountApiModel, OBError>>(OBResult.Loading)
+  private val _uiState = MutableStateFlow<OBResult<UiAccountModel, OBError>>(OBResult.Loading)
   val uiState = _uiState.asStateFlow()
 
 
@@ -61,7 +63,7 @@ class DetailViewModel(
                   is OBResult.Failure -> {
                       _uiState.value = OBResult.Failure(result.error)
                   }
-                  is OBResult.Success -> _uiState.value = OBResult.Success(result.value)
+                  is OBResult.Success -> _uiState.value = OBResult.Success(result.value.toUiAccountModel())
               }
           }
     }

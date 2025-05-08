@@ -1,6 +1,5 @@
 package org.cats.onlinebank.data.source.remote
 
-import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.test.runTest
 import org.cats.onlinebank.core.common.test.MainDispatcherRule
 import org.cats.onlinebank.core.data.source.remote.api.ApiService
@@ -10,6 +9,7 @@ import org.cats.onlinebank.data.common.FAKE_DATA
 import org.cats.onlinebank.data.source.remote.testDouble.ApiServiceFake
 import org.junit.Rule
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class ApiServiceTest {
   @get:Rule val mainDispatcherRule = MainDispatcherRule()
@@ -25,9 +25,8 @@ class ApiServiceTest {
 
     // THEN
     actualResult.onSuccess {
-      assertThat(it.first()).isNotNull()
-      assertThat(it.first().name).isEqualTo(FAKE_DATA.fakeBanksResult.first().name)
-      assertThat(it.first().isCA).isEqualTo(FAKE_DATA.fakeBanksResult.first().isCA)
+      assertEquals(it.first().name, FAKE_DATA.fakeBanksResult.first().name)
+      assertEquals(it.first().isCA, FAKE_DATA.fakeBanksResult.first().isCA)
     }
   }
 }

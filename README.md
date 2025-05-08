@@ -4,6 +4,9 @@
 Cats OnlineBank est une application Android développée en Kotlin, utilisant Jetpack Compose pour l'interface utilisateur et Koin pour l'injection de dépendances. Ce projet est structuré en plusieurs modules pour une meilleure maintenabilité et suit les principes de la Clean Architecture.
 
 ## Fonctionnalités
+
+- **Gestion des comptes** : Affichage des soldes et des transactions.
+- **Interface utilisateur** : Utilisation de Jetpack Compose pour une expérience fluide et réactive.
 - **Architecture modulaire** : séparation des responsabilités entre les modules.
 - **Jetpack Compose** : pour une interface utilisateur moderne et réactive.
 - **Koin** : pour la gestion des dépendances.

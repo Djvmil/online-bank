@@ -23,6 +23,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.koin.compose.navigation)
     implementation(libs.androidx.material3)
+    implementation(libs.kotlinx.datetime)
 
     testImplementation(libs.mockk)
     testImplementation(libs.turbine)

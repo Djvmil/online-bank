@@ -8,6 +8,7 @@ android {
 
 dependencies {
     implementation(libs.koin.android)
+    implementation(libs.kotlinx.datetime)
     implementation(libs.kotlinx.coroutines.test)
     implementation(libs.koin.test.junit4)
 }

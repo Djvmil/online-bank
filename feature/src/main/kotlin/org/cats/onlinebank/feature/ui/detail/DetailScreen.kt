@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -20,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -28,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.cacts.onlinebank.feature.R
 import org.cats.onlinebank.core.common.model.OBResult
-import org.cats.onlinebank.core.data.source.remote.model.AccountApiModel
+import org.cats.onlinebank.feature.ui.home.model.UiAccountModel
 import org.koin.androidx.compose.koinViewModel
 import java.util.Locale
 
@@ -42,7 +44,7 @@ fun DetailScreen(
     OBResult.Loading -> {
       Text(
         modifier = Modifier.fillMaxSize(),
-        text = "Loading...",
+        text = stringResource(R.string.feature_loading_label),
         style = TextStyle(
           fontSize = 60.sp,
           fontWeight = FontWeight.Medium,
@@ -54,7 +56,7 @@ fun DetailScreen(
     is OBResult.Failure -> {
       Text(
         modifier = Modifier.fillMaxSize(),
-        text = "Failure",
+        text = stringResource(R.string.feature_error_label),
         style = TextStyle(
           fontSize = 60.sp,
           fontWeight = FontWeight.Medium,
@@ -65,7 +67,7 @@ fun DetailScreen(
     }
     is OBResult.Success -> {
       DetailContent(
-        uiState = (uiState as OBResult.Success<AccountApiModel>).value,
+        uiState = (uiState as OBResult.Success<UiAccountModel>).value,
         onBackClicked = onBackClicked
       )
     }
@@ -75,10 +77,9 @@ fun DetailScreen(
 @Composable
 fun DetailContent(
   onBackClicked: () -> Unit,
-  uiState: AccountApiModel
+  uiState: UiAccountModel
 ) {
     Column(modifier = Modifier.fillMaxWidth().background(Color.LightGray.copy(0.2f))) {
-
       Row(
         modifier = Modifier
           .fillMaxWidth()
@@ -97,7 +98,7 @@ fun DetailContent(
         )
         Text(
           modifier = Modifier,
-          text = "Mes Comptes",
+          text = stringResource(R.string.feature_my_accounts_label),
           style = TextStyle(
             fontWeight = FontWeight.Medium,
             color = Color.Blue.copy(0.5f),
@@ -129,7 +130,7 @@ fun DetailContent(
       )
 
     LazyColumn(modifier = Modifier.fillMaxSize().background(Color.White)) {
-        itemsIndexed(uiState.operations,  { _, it -> it.hashCode() }){ id, item ->
+        items(uiState.operations){ item ->
           Row(
             modifier = Modifier
               .weight(1f)
@@ -158,7 +159,6 @@ fun DetailContent(
               )
               Text(
                 modifier = Modifier,
-                //text = item.date.toDateHuman(),
                 text = item.date,
                 style = TextStyle(
                   fontSize = 16.sp,
@@ -190,19 +190,15 @@ fun DetailContent(
 
 }
 
-
 @Preview
 @Composable
 fun DetailScreenPreview() {
-  DetailContent(onBackClicked = {}, AccountApiModel(
+  DetailContent(onBackClicked = {}, UiAccountModel(
     id = "1",
     balance = 1000.0,
     label = "label",
     holder = "holder",
     operations = emptyList(),
-    contractNumber = "contract_number",
-    productCode = "product_code",
-    order = 1,
-    role = 1
+    order = 1
   ))
 }
