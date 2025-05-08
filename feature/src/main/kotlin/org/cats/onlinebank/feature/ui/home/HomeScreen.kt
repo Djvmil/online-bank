@@ -106,13 +106,12 @@ fun HomeContent(
                           .padding(vertical = 8.dp),
                       label = item.label
                   )
-                  // Here we store each state of expandable item
+
                   val expandStates = remember(item.banks.size) {
                       List(item.banks.size) { mutableStateOf(false) }
                   }
                   LazyColumn {
-                      itemsIndexed(item.banks, { _, it -> it.name }) { idx, bank ->
-
+                      itemsIndexed(item.banks) { idx, bank ->
                           ExpandableItem(
                               modifier = Modifier
                                   .fillMaxWidth(),

@@ -17,8 +17,6 @@ dependencies {
     implementation(libs.ktor.negotiation)
     implementation(libs.ktor.logging)
     implementation(libs.koin.android)
-    implementation(libs.kotlinx.datetime)
-    implementation(libs.kotlinx.collections.immutable)
 
     //test
     testImplementation(libs.mockk)

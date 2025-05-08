@@ -1,6 +1,5 @@
 package org.cats.onlinebank.feature.ui.home.component
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
@@ -16,7 +15,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.cacts.onlinebank.feature.R
 import org.cats.onlinebank.feature.ui.home.model.UiAccountModel
 import java.util.Locale
