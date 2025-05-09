@@ -1,5 +1,10 @@
 package org.cats.onlinebank.core.common.model
 
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
+
 /*
 V = Value
 E = Error
@@ -20,3 +25,8 @@ inline fun <V, U, reified E : Any?> OBResult<V, E>.mapOB(transform: (V) -> U): O
     is OBResult.Failure -> OBResult.Failure(error)
   }
 }
+
+fun <V> Flow<V>.asResult(): Flow<OBResult<V, Throwable>> =
+  map<V, OBResult<V, Throwable>> { OBResult.Success(it) }
+    .onStart { emit(OBResult.Loading) }
+    .catch { emit(OBResult.Failure(it)) }

@@ -42,6 +42,10 @@ gradlePlugin {
             id = "cats.onlinebank.app.compose"
             implementationClass = "AppComposeConventionPlugin"
         }
+        register("androidAppKmp") {
+            id = "cats.onlinebank.app.kmp"
+            implementationClass = "AppKmpConventionPlugin"
+        }
         register("androidLibrary") {
             id = "cats.onlinebank.library"
             implementationClass = "LibraryConventionPlugin"
@@ -49,6 +53,10 @@ gradlePlugin {
         register("androidLibraryCompose") {
             id = "cats.onlinebank.library.compose"
             implementationClass = "LibraryComposeConventionPlugin"
+        }
+        register("androidLibraryKmp") {
+            id = "cats.onlinebank.library.kmp"
+            implementationClass = "LibraryKmpConventionPlugin"
         }
         register("androidFlavors") {
             id = "cats.onlinebank.app.flavors"

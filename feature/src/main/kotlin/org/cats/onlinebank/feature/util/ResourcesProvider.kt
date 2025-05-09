@@ -1,4 +1,4 @@
-package org.cats.onlinebank.core.common
+package org.cats.onlinebank.feature.util
 
 import android.content.Context
 

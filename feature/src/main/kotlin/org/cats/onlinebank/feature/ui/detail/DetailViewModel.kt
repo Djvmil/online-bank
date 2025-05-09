@@ -10,16 +10,15 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import org.cats.onlinebank.core.common.ResourcesProvider
 import org.cats.onlinebank.core.common.dispatcher.AppDispatchers
 import org.cats.onlinebank.core.common.model.OBError
 import org.cats.onlinebank.core.common.model.OBResult
-import org.cats.onlinebank.core.data.source.remote.model.AccountApiModel
 import org.cats.onlinebank.domain.usecase.GetAccountDetailUseCase
 import org.cats.onlinebank.feature.navigation.DestinationsArgs
 import org.cacts.onlinebank.feature.R
 import org.cats.onlinebank.feature.ui.home.model.UiAccountModel
 import org.cats.onlinebank.feature.ui.home.model.toUiAccountModel
+import org.cats.onlinebank.feature.util.ResourcesProvider
 
 private const val TAG = "DetailViewModel"
 class DetailViewModel(

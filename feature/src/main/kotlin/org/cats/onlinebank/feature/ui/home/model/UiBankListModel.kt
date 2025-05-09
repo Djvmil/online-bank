@@ -1,8 +1,8 @@
 package org.cats.onlinebank.feature.ui.home.model
 
-import org.cats.onlinebank.core.common.ResourcesProvider
 import org.cats.onlinebank.core.data.source.remote.model.BankApiModel
 import org.cacts.onlinebank.feature.R
+import org.cats.onlinebank.feature.util.ResourcesProvider
 
 
 data class UiBankListModel(val label: String, val banks: List<UiBankModel>)
