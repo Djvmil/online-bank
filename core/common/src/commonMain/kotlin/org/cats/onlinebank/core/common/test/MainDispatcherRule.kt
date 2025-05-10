@@ -1,6 +1,7 @@
 package org.cats.onlinebank.core.common.test
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
@@ -8,7 +9,8 @@ import kotlinx.coroutines.test.setMain
 //import kotlin.test.AfterTest
 //import kotlin.test.BeforeTest
 
-class MainDispatcherRule(
+@OptIn(ExperimentalCoroutinesApi::class)
+class MainDispatcherRule  constructor(
   private val testDispatcher: TestDispatcher = UnconfinedTestDispatcher(),
 ) {
   //@BeforeTest

@@ -17,7 +17,6 @@ import org.cats.onlinebank.feature.ui.home.model.UiBankListModel
 import org.cats.onlinebank.feature.ui.home.model.toUiBankListModel
 import org.cats.onlinebank.feature.util.ResourcesProvider
 
-private const val TAG = "HomeViewModel"
 class HomeViewModel(
     private val getBankListUseCase: GetBankListUseCase,
     private val appDispatchers: AppDispatchers,
@@ -36,6 +35,8 @@ class HomeViewModel(
           .flowOn(appDispatchers.io)
           .catch { throwable -> OBResult.Failure(OBError(throwable = throwable)) }
           .collect { result ->
+
+              Log.e("TAG", "fetchBankList: $result")
               
               when(result) {
                   is OBResult.Loading -> _uiBanks.value = OBResult.Loading

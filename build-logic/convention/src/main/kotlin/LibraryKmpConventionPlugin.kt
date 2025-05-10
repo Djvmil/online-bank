@@ -1,14 +1,11 @@
 import com.android.build.gradle.LibraryExtension
-import org.cats.onlinebank.configureAndroidCompose
 import org.cats.onlinebank.configureKotlinAndroid
 import org.cats.onlinebank.configureKotlinMultiplatform
 import org.cats.onlinebank.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
@@ -35,7 +32,6 @@ class LibraryKmpConventionPlugin: Plugin<Project> {
             dependencies {
                 "commonTestImplementation"(libs.findLibrary("kotlin.test").get())
                 "commonTestImplementation"(libs.findLibrary("turbine").get())
-                "commonTestImplementation"(libs.findLibrary("kotlinx.coroutines.test").get())
                 "commonTestImplementation"(libs.findLibrary("kotlinx.coroutines.test").get())
             }
             project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
