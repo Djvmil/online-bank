@@ -12,9 +12,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 class LibraryKmpConventionPlugin: Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            plugins.apply("com.android.library")
-            plugins.apply("org.jetbrains.kotlin.multiplatform")
-            plugins.apply("com.google.devtools.ksp")
+            with(pluginManager) {
+                apply("com.android.library")
+                apply("org.jetbrains.kotlin.multiplatform")
+                apply(KoinConventionPlugin::class.java)
+            }
             configureKotlinMultiplatform()
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
@@ -26,18 +28,14 @@ class LibraryKmpConventionPlugin: Plugin<Project> {
 
             extensions.configure(KotlinMultiplatformExtension::class.java) {
                 sourceSets.named("commonMain").configure {
-                    kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
+                     kotlin.srcDir( "build/generated/ksp/commonMain/kotlin" )
+
                 }
             }
             dependencies {
                 "commonTestImplementation"(libs.findLibrary("kotlin.test").get())
                 "commonTestImplementation"(libs.findLibrary("turbine").get())
                 "commonTestImplementation"(libs.findLibrary("kotlinx.coroutines.test").get())
-            }
-            project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
-                if(name != "kspCommonMainKotlinMetadata") {
-                    dependsOn("kspCommonMainKotlinMetadata")
-                }
             }
         }
     }

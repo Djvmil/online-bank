@@ -25,19 +25,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.cacts.onlinebank.feature.R
 import org.cats.onlinebank.core.common.model.OBResult
 import org.cats.onlinebank.feature.ui.home.model.UiAccountModel
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 import java.util.Locale
 
 @Composable
 fun DetailScreen(
-    viewModel: DetailViewModel = koinViewModel(),
-    onBackClicked: () -> Unit
+  viewModel: DetailViewModel = koinViewModel(),
+  onBackClicked: () -> Unit
 ) {
   val uiState by viewModel.uiState.collectAsState()
   when (uiState) {
@@ -189,7 +188,7 @@ fun DetailContent(
     }
 
 }
-
+/*
 @Preview
 @Composable
 fun DetailScreenPreview() {
@@ -201,4 +200,4 @@ fun DetailScreenPreview() {
     operations = emptyList(),
     order = 1
   ))
-}
+}*/

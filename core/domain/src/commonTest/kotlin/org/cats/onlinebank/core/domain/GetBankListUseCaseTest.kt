@@ -1,19 +1,15 @@
-package org.cats.onlinebank.domain
+package org.cats.onlinebank.core.domain
 
 import app.cash.turbine.test
-import io.mockk.coEvery
-import io.mockk.impl.annotations.MockK
-import io.mockk.junit4.MockKRule
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.cats.onlinebank.core.common.model.OBError
 import org.cats.onlinebank.core.common.model.OBResult
 import org.cats.onlinebank.core.common.test.MainDispatcherRule
 import org.cats.onlinebank.core.data.repository.BankListRepository
-import org.cats.onlinebank.domain.usecase.GetBankListUseCase
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import org.cats.onlinebank.core.domain.usecase.GetBankListUseCase
+import kotlin.test.BeforeTest
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class GetBankListUseCaseTest {
@@ -24,7 +20,7 @@ class GetBankListUseCaseTest {
   @MockK lateinit var bankListRepository: BankListRepository
   private lateinit var getBankListUseCase: GetBankListUseCase
 
-  @Before
+  @BeforeTest
   fun setup() {
     getBankListUseCase = GetBankListUseCase(bankListRepository)
   }

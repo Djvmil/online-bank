@@ -1,4 +1,4 @@
-package org.cats.onlinebank.domain
+package org.cats.onlinebank.core.domain
 
 import org.cats.onlinebank.core.data.source.remote.model.AccountApiModel
 import org.cats.onlinebank.core.data.source.remote.model.BankApiModel

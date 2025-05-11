@@ -29,7 +29,7 @@ import org.cats.onlinebank.feature.ui.home.component.BankHeader
 import org.cats.onlinebank.feature.ui.home.component.ExpandableItem
 import org.cats.onlinebank.feature.ui.home.component.HeaderExpandableItem
 import org.cats.onlinebank.feature.ui.home.model.UiBankListModel
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun HomeScreen(

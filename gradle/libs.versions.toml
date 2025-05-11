@@ -43,21 +43,19 @@ kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.re
 koin-annotations-bom = { group = "io.insert-koin", name = "koin-annotations-bom", version.ref = "koin-annotations" }
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-annotations" }
 koin-ksp-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-annotations" }
-koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose"}
-koin-androidx-startup = { group = "io.insert-koin", name = "koin-androidx-startup"}
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinVersion"}
+koin-androidx-startup = { group = "io.insert-koin", name = "koin-androidx-startup", version.ref = "koinVersion"}
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koinVersion"}
-koin-core-coroutines = { group = "io.insert-koin", name = "koin-android-coroutines"}
-koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel"}
-koin-compose-viewmodel-navigation = { group = "io.insert-koin", name = "koin-compose-viewmodel-navigation"}
+koin-core-coroutines = { group = "io.insert-koin", name = "koin-android-coroutines", version.ref = "koinVersion"}
+koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koinVersion"}
+koin-compose-viewmodel-navigation = { group = "io.insert-koin", name = "koin-compose-viewmodel-navigation", version.ref = "koinVersion"}
+koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koinVersion"}
 koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koinVersion"}
 
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
-koin-compose-navigation = { group = "io.insert-koin", name = "koin-androidx-compose-navigation", version.ref = "koinVersion" }
-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koinVersion" }
-koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinVersion" }
 koin-test-junit4 = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koinVersion" }
 
 ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
@@ -108,3 +106,4 @@ cats-onlinebank-library-compose = { id = "cats.onlinebank.library.compose" }
 cats-onlinebank-app-flavors = { id = "cats.onlinebank.app.flavors" }
 cats-onlinebank-app-kmp = { id = "cats.onlinebank.app.kmp" }
 cats-onlinebank-library-kmp = { id = "cats.onlinebank.library.kmp" }
+cats-onlinebank-di-koin = { id = "cats.onlinebank.di.koin" }

@@ -6,8 +6,8 @@ plugins {
 
 group = "org.cats.onlinebank.buildlogic"
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 kotlin {
@@ -15,7 +15,6 @@ kotlin {
         jvmTarget = JvmTarget.JVM_17
     }
 }
-
 
 dependencies {
     compileOnly(libs.android.gradlePlugin)
@@ -57,6 +56,10 @@ gradlePlugin {
         register("androidLibraryKmp") {
             id = "cats.onlinebank.library.kmp"
             implementationClass = "LibraryKmpConventionPlugin"
+        }
+        register("koin") {
+            id = "cats.onlinebank.di.koin"
+            implementationClass = "KoinConventionPlugin"
         }
         register("androidFlavors") {
             id = "cats.onlinebank.app.flavors"

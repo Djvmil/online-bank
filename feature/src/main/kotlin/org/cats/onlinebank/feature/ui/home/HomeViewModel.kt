@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import org.cats.onlinebank.core.common.dispatcher.AppDispatchers
 import org.cats.onlinebank.core.common.model.OBError
 import org.cats.onlinebank.core.common.model.OBResult
-import org.cats.onlinebank.domain.usecase.GetBankListUseCase
+import org.cats.onlinebank.core.domain.usecase.GetBankListUseCase
 import org.cats.onlinebank.feature.ui.home.model.UiBankListModel
 import org.cats.onlinebank.feature.ui.home.model.toUiBankListModel
 import org.cats.onlinebank.feature.util.ResourcesProvider

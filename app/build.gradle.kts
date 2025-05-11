@@ -32,10 +32,6 @@ dependencies {
     implementation(projects.core.domain)
     implementation(projects.feature)
 
-    implementation(libs.koin.android)
-    implementation(libs.koin.compose)
-    implementation(libs.koin.compose.navigation)
-
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
