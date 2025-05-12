@@ -1,7 +1,11 @@
 plugins {
-    alias(libs.plugins.cats.onlinebank.app)
-    alias(libs.plugins.cats.onlinebank.app.compose)
-    alias(libs.plugins.cats.onlinebank.app.flavors)
+    alias(libs.plugins.cats.onlinebank.app.kmp)
+    alias(libs.plugins.kotlin.cocoapods)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.dev.mokkery)
+    alias(libs.plugins.ktorfit)
 }
 
 android {
@@ -11,6 +15,16 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix = ".debug"
+        }
+        release {
+            isMinifyEnabled = true
+            applicationIdSuffix = ".release"
+        }
     }
 
     packaging {
@@ -23,21 +37,44 @@ android {
             merges += "META-INF/INDEX.LIST"
         }
     }
-
 }
 
-dependencies {
-    implementation(projects.core.common)
-    implementation(projects.core.data)
-    implementation(projects.core.domain)
-    implementation(projects.feature)
+kotlin {
+    cocoapods {
+        summary = "KMM module"
+        homepage = "Link to the Shared Module homepage"
+        ios.deploymentTarget = "14.1"
+        version = "2.1.20"
+        framework {
+            baseName = "app"
+            isStatic = false
+        }
+    }
+    sourceSets {
+        androidMain.dependencies {
+            implementation(libs.androidx.navigation.compose)
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+            implementation(libs.koin.androidx.startup)
+        }
 
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+        commonMain.dependencies {
+            implementation(projects.core.common)
+            implementation(projects.core.data)
+            implementation(projects.core.domain)
+            implementation(projects.feature)
+
+            implementation(compose.material3)
+            implementation(libs.koin.compose.viewmodel.navigation)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.annotations)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose.viewmodel.navigation)
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.cats.onlinebank.library.kmp)
+    alias(libs.plugins.cats.onlinebank.di.koin)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dev.mokkery)
     alias(libs.plugins.ktorfit)
@@ -10,18 +11,13 @@ android {
 }
 
 kotlin {
-    androidTarget()
     sourceSets {
         commonMain.dependencies {
             implementation(projects.core.common)
-            implementation(libs.koin.core)
-            implementation(libs.koin.annotations)
-
             implementation(libs.ktor.core)
             implementation(libs.ktor.serialization)
             implementation(libs.ktor.negotiation)
             implementation(libs.ktor.logging)
-            implementation(libs.kotlinx.serialization.json)
 
             implementation(libs.ktorfit.lib)
             implementation(libs.ktorfit.converters.call)

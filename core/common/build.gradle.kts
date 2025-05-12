@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.cats.onlinebank.library.kmp)
+    alias(libs.plugins.cats.onlinebank.di.koin)
 }
 
 android {
@@ -7,19 +8,17 @@ android {
 }
 
 kotlin {
-    androidTarget()
     sourceSets {
         commonMain.dependencies {
             api(libs.kotlinx.datetime)
             api(libs.kotlinx.serialization.json)
-            implementation(libs.koin.core)
-            implementation(libs.koin.annotations)
             api(libs.kotlinx.coroutines.test)
             api(libs.kotlin.test)
         }
     }
-}
 
-dependencies {
-    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
+    tasks.matching { it.name.startsWith("ksp") && it.name.contains("IosArm64") }.configureEach {
+        dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
+    }
+
 }

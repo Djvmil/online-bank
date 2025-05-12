@@ -20,12 +20,16 @@ class KoinConventionPlugin: Plugin<Project> {
 
             dependencies {
                 "commonMainImplementation"(libs.findLibrary("koin.core").get())
-                "commonMainApi"(platform(libs.findLibrary("koin.annotations.bom").get()))
                 "commonMainApi"(libs.findLibrary("koin.annotations").get())
 
                 "commonTestImplementation"(libs.findLibrary("koin.test").get())
 
                 "kspCommonMainMetadata"(libs.findLibrary("koin.ksp.compiler").get())
+
+                //"kspAndroid"(libs.findLibrary("koin.ksp.compiler").get())
+                "kspIosX64"(libs.findLibrary("koin.ksp.compiler").get())
+                "kspIosArm64"(libs.findLibrary("koin.ksp.compiler").get())
+                "kspIosSimulatorArm64"(libs.findLibrary("koin.ksp.compiler").get())
             }
 
             project.tasks.withType(KotlinCompilationTask::class.java).configureEach {

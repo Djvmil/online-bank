@@ -1,10 +1,10 @@
 package org.cats.onlinebank.core.data.common
 
-import java.io.FileNotFoundException
-import java.net.URL
+import io.ktor.http.Url
+import kotlinx.io.files.FileNotFoundException
 
 fun String.readFile(): String {
-  val content: URL? = ClassLoader.getSystemResource(this)
+  val content: Url? = ClassLoader.getSystemResource(this)
 
   return content?.readText() ?: throw FileNotFoundException("file path: $this was not found")
 }

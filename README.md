@@ -1,18 +1,26 @@
 # Cats OnlineBank
 
 ## Description
-Cats OnlineBank est une application Android développée en Kotlin, utilisant Jetpack Compose pour l'interface utilisateur et Koin pour l'injection de dépendances. Ce projet est structuré en plusieurs modules pour une meilleure maintenabilité.
+Cats OnlineBank est une application multiplateforme développée en Kotlin Multiplatform Mobile (KMM). Elle permet de gérer des comptes bancaires avec une interface utilisateur moderne basée sur Jetpack Compose.
 
 ## Fonctionnalités
-- **Architecture modulaire** : séparation des responsabilités entre les modules.
-- **Jetpack Compose** : pour une interface utilisateur moderne et réactive.
-- **Koin** : pour la gestion des dépendances.
-- **Tests** : support des tests unitaires et d'instrumentation.
+- **Gestion des comptes** : Affichage des soldes et des transactions.
+- **Interface utilisateur** : Utilisation de Jetpack Compose pour une expérience fluide et réactive.
+- **Multiplateforme** : Support des plateformes Android et iOS grâce à Kotlin Multiplatform.
+- **Architecture modulaire** : Organisation en modules pour une meilleure maintenabilité.
 
 ## Prérequis
-- **Android Studio** : version `2024.3.1 Patch 1` ou supérieure.
-- **JDK** : version 17 ou supérieure.
-- **Gradle** : version 8.9.2.
+- **Android Studio** : Version 2024.3.1 Patch 1 (Meerkat) ou supérieure.
+- **Kotlin** : Version 2.1.20.
+- **Gradle** : Version 8.9.2.
+- **Cocoapods** : Version 1.0.0 ou supérieure (pour iOS).
+
+## Liste des tâches restantes
+
+- [x] Migration des cibles iOS (`iosX64`, `iosArm64`, `iosSimulatorArm64`)
+- [x] Ajout de la version pour Cocoapods dans le fichier `build.gradle.kts`
+- [ ] Résolution des problèmes liés à la tâche `:core:common:kspKotlinIosArm6
+- [ ] Tests finaux sur les plateformes [x] Android et [] iOS
 
 ## Installation
 1. Clonez le dépôt :

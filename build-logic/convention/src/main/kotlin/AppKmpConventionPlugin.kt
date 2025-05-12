@@ -1,4 +1,4 @@
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.ApplicationExtension
 import org.cats.onlinebank.configureKotlinAndroid
 import org.cats.onlinebank.configureKotlinMultiplatform
 import org.cats.onlinebank.libs
@@ -14,7 +14,7 @@ class AppKmpConventionPlugin : Plugin<Project> {
             apply(plugin = "com.android.application")
             plugins.apply("org.jetbrains.kotlin.multiplatform")
             configureKotlinMultiplatform()
-            extensions.configure<LibraryExtension> {
+            extensions.configure<ApplicationExtension> {
                 configureKotlinAndroid(this)
                 defaultConfig.targetSdk = 35
                 // The resource prefix is derived from the module name,
@@ -22,13 +22,10 @@ class AppKmpConventionPlugin : Plugin<Project> {
                 resourcePrefix = path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_").lowercase() + "_"
             }
             dependencies {
+                "commonMainImplementation"(libs.findLibrary("logger.kermit").get())
                 "commonTestImplementation"(libs.findLibrary("kotlin.test").get())
                 "commonTestImplementation"(libs.findLibrary("turbine").get())
                 "commonTestImplementation"(libs.findLibrary("kotlinx.coroutines.test").get())
-            }
-
-            tasks.named("kspDebugKotlinAndroid") {
-                dependsOn("kspCommonMainKotlinMetadata")
             }
         }
     }

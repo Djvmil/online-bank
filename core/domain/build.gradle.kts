@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.cats.onlinebank.library.kmp)
+    alias(libs.plugins.cats.onlinebank.di.koin)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dev.mokkery)
     alias(libs.plugins.ktorfit)
@@ -10,7 +11,6 @@ android {
 }
 
 kotlin {
-    androidTarget()
     sourceSets {
         commonMain.dependencies {
             implementation(projects.core.common)
