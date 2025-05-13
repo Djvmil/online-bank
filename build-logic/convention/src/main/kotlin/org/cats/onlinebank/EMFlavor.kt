@@ -9,9 +9,6 @@ enum class FlavorDimension {
     ContentType
 }
 
-// The content for the app can either come from local static data which is useful for demo
-// purposes, or from a production backend server which supplies up-to-date, real content.
-// These two product flavors reflect this behaviour.
 enum class EMFlavor(val dimension: FlavorDimension, val applicationIdSuffix: String? = null) {
     DEV(FlavorDimension.ContentType),
     PROD(FlavorDimension.ContentType, ".prod")
