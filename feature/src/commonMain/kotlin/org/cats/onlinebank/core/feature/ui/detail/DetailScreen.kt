@@ -22,14 +22,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import onlinebank.feature.generated.resources.Res
 import onlinebank.feature.generated.resources.baseline_arrow_back_ios_24
+import onlinebank.feature.generated.resources.feature_amount_value
 import onlinebank.feature.generated.resources.feature_error_label
 import onlinebank.feature.generated.resources.feature_loading_label
 import onlinebank.feature.generated.resources.feature_my_accounts_label
 import org.cats.onlinebank.core.common.model.OBResult
+import org.cats.onlinebank.core.common.utils.Utils.roundTo
 import org.cats.onlinebank.core.feature.ui.home.model.UiAccountModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -110,8 +113,7 @@ fun DetailContent(
 
       Text(
         modifier = Modifier.fillMaxWidth(),
-        //text =  String.format(Locale.getDefault(), "%.2f €", uiState.balance),
-        text = uiState.balance.toString(),
+        text = stringResource(Res.string.feature_amount_value, uiState.balance.roundTo(2)),
         style = TextStyle(
           fontSize = 60.sp,
           fontWeight = FontWeight.Medium,
@@ -143,7 +145,7 @@ fun DetailContent(
           ) {
             Column(
               modifier = Modifier
-                .weight(0.5f)
+                .weight(0.6f)
                 .padding(10.dp)
                 .fillMaxWidth(),
               horizontalAlignment = Alignment.Start,
@@ -152,6 +154,8 @@ fun DetailContent(
               Text(
                 modifier = Modifier,
                 text = item.title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
                 style = TextStyle(
                   fontWeight = FontWeight.Medium,
                   fontSize = 16.sp,
@@ -170,7 +174,7 @@ fun DetailContent(
               )
             }
             Text(
-              modifier = Modifier.weight(0.5f),
+              modifier = Modifier.weight(0.3f),
               text =  item.amount.plus(" €"),
               style = TextStyle(
                 fontSize = 16.sp,
@@ -191,16 +195,3 @@ fun DetailContent(
     }
 
 }
-/*
-@Preview
-@Composable
-fun DetailScreenPreview() {
-  DetailContent(onBackClicked = {}, UiAccountModel(
-    id = "1",
-    balance = 1000.0,
-    label = "label",
-    holder = "holder",
-    operations = emptyList(),
-    order = 1
-  ))
-}*/

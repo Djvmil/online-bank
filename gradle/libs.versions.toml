@@ -2,14 +2,9 @@
 agp = "8.9.2"
 androidTools = "31.10.0"
 kotlin = "2.1.20"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
 androidxNavigation = "2.9.0"
-composeBom = "2025.05.00"
 compose-plugin = "1.7.3"
 kotlinxCoroutines = "1.10.2"
-androidxTestRules = "1.6.1"
 kotlinxDatetime = "0.6.1"
 kotlinxSerializationJson = "1.8.1"
 ksp = "2.1.20-2.0.0"
@@ -20,45 +15,29 @@ mockkVersion = "1.13.8"
 mokkeryVersion = "2.7.2"
 turbine = "1.2.0"
 ktor = "3.1.3"
-coil = "3.0.3"
 ktorfit = "2.5.1"
 kotlinCompilerExtensionVersion = "1.5.12"
 
-kotlinx-immutable-collection = "0.3.7"
 [libraries]
-junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
-androidx-test-runner = { group = "androidx.test", name = "runner" }
-androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTestRules" }
 kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
 
-
-koin-annotations-bom = { group = "io.insert-koin", name = "koin-annotations-bom", version.ref = "koin-annotations" }
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-annotations" }
 koin-ksp-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-annotations" }
 koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinVersion"}
 koin-androidx-startup = { group = "io.insert-koin", name = "koin-androidx-startup", version.ref = "koinVersion"}
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koinVersion"}
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koinVersion"}
-koin-core-coroutines = { group = "io.insert-koin", name = "koin-android-coroutines", version.ref = "koinVersion"}
 koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koinVersion"}
 koin-compose-viewmodel-navigation = { group = "io.insert-koin", name = "koin-compose-viewmodel-navigation", version.ref = "koinVersion"}
 koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koinVersion"}
 koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koinVersion"}
 logger-kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermitVersion"}
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
-koin-test-junit4 = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koinVersion" }
-
-coil = { group = "io.coil-kt.coil3", name = "coil", version.ref = "coil" }
-coil-core = { group = "io.coil-kt.coil3", name = "coil-core", version.ref = "coil" }
 
 ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
 ktor-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
@@ -68,7 +47,6 @@ ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-jso
 ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
 ktor-client-mock = { group = "io.ktor", name = "ktor-client-mock", version.ref = "ktor" }
 
-
 ktorfit-lib = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-lib", version.ref = "ktorfit" }
 ktorfit-converters-flow = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-converters-flow", version.ref = "ktorfit" }
 ktorfit-converters-call = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-converters-call", version.ref = "ktorfit" }
@@ -76,7 +54,6 @@ ktorfit-converters-response = { group = "de.jensklingenberg.ktorfit", name = "kt
 
 mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
-kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-immutable-collection" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -84,7 +61,6 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
-work-testing = { group = "androidx.work", name = "work-testing", version = "workVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -100,13 +76,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 dev-mokkery = { id = "dev.mokkery", version.ref = "mokkeryVersion" }
 ktorfit = { id = "de.jensklingenberg.ktorfit", version.ref = "ktorfit" }
 
-
 # Plugins defined by this project
-cats-onlinebank-app = { id = "cats.onlinebank.app" }
-cats-onlinebank-app-compose = { id = "cats.onlinebank.app.compose" }
-cats-onlinebank-library = { id = "cats.onlinebank.library" }
-cats-onlinebank-library-compose = { id = "cats.onlinebank.library.compose" }
-cats-onlinebank-app-flavors = { id = "cats.onlinebank.app.flavors" }
 cats-onlinebank-app-kmp = { id = "cats.onlinebank.app.kmp" }
 cats-onlinebank-library-kmp = { id = "cats.onlinebank.library.kmp" }
 cats-onlinebank-di-koin = { id = "cats.onlinebank.di.koin" }

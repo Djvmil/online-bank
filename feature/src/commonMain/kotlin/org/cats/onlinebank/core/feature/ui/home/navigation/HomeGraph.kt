@@ -31,8 +31,3 @@ fun NavGraphBuilder.home(navActions: NavigationHelpers) {
           })
       }
 }
-
-fun NavigationHelpers.navigateToHome() {
-  navController.navigate(Destinations.HOME_ROUTE)
-}
-

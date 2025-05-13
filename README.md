@@ -20,7 +20,8 @@ Cats OnlineBank est une application multiplateforme développée en Kotlin Multi
 - [x] Migration des cibles iOS (`iosX64`, `iosArm64`, `iosSimulatorArm64`)
 - [x] Ajout de la version pour Cocoapods dans le fichier `build.gradle.kts`
 - [ ] Résolution des problèmes liés à la tâche `:core:common:kspKotlinIosArm6
-- [ ] Tests finaux sur les plateformes [x] Android et [] iOS
+- [x] Tests finaux sur le plateforme Android
+- [ ] Tests finaux sur le plateforme iOS
 
 ## Installation
 1. Clonez le dépôt :

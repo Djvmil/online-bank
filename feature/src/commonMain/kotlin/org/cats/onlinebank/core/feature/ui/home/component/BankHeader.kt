@@ -19,8 +19,10 @@ import androidx.compose.ui.unit.sp
 import onlinebank.feature.generated.resources.Res
 import onlinebank.feature.generated.resources.baseline_expand_less_24
 import onlinebank.feature.generated.resources.expand_more
-import org.cats.onlinebank.core.common.utils.formatString
+import onlinebank.feature.generated.resources.feature_amount_value
+import org.cats.onlinebank.core.common.utils.Utils.roundTo
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun BankHeader(
@@ -72,7 +74,8 @@ fun BankHeader(
         if (amount != null) {
             Text(
                 modifier = Modifier.weight(3f),
-                text = formatString( "%.2f €", listOf(amount)),
+                text = stringResource(Res.string.feature_amount_value, amount.roundTo(2)),
+                maxLines = 1,
                 style = TextStyle(
                     fontSize = 18.sp,
                     color = Color.LightGray,

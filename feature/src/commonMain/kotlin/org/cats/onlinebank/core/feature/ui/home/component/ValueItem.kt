@@ -16,9 +16,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import onlinebank.feature.generated.resources.Res
 import onlinebank.feature.generated.resources.baseline_arrow_forward_ios_24
-import org.cats.onlinebank.core.common.utils.formatString
+import onlinebank.feature.generated.resources.feature_amount_value
+import org.cats.onlinebank.core.common.utils.Utils.roundTo
 import org.cats.onlinebank.core.feature.ui.home.model.UiAccountModel
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun ValueItem(
@@ -39,10 +41,9 @@ fun ValueItem(
                 overflow = TextOverflow.Ellipsis
             )
             Text(
-                modifier = Modifier.weight(1f),
-                text = formatString( "%.2f €", listOf(item.balance)),
+                modifier = Modifier.weight(1.5f),
+                text = stringResource(Res.string.feature_amount_value, item.balance.roundTo(2)),
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
                 style = TextStyle(
                     color = Color.LightGray,
                     textAlign = TextAlign.End
@@ -51,8 +52,8 @@ fun ValueItem(
 
             Icon(
                 modifier = Modifier
-                    .weight(1f).
-                height(16.dp),
+                    .weight(0.5f).
+                height(14.dp),
                 painter = painterResource(Res.drawable.baseline_arrow_forward_ios_24),
                 contentDescription = null,
             )

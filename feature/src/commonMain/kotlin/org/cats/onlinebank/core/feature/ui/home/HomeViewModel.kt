@@ -13,6 +13,8 @@ import org.cats.onlinebank.core.common.dispatcher.AppDispatchers
 import org.cats.onlinebank.core.common.model.OBError
 import org.cats.onlinebank.core.common.model.OBResult
 import org.cats.onlinebank.core.domain.usecase.GetBankListUseCase
+import org.cats.onlinebank.core.feature.ui.detail.DetailViewModel
+import org.cats.onlinebank.core.feature.ui.detail.DetailViewModel.Companion
 import org.cats.onlinebank.core.feature.ui.home.model.UiBankListModel
 import org.cats.onlinebank.core.feature.ui.home.model.toUiBankListModel
 
@@ -33,7 +35,7 @@ class HomeViewModel(
           .flowOn(appDispatchers.io)
           .catch {
               throwable ->
-              Logger.e("Error fetching data:", throwable)
+              Logger.e(tag = TAG, messageString =  "Error fetching data:", throwable = throwable)
               OBResult.Failure(OBError(throwable = throwable))
           }
           .collect { result ->
@@ -48,4 +50,8 @@ class HomeViewModel(
           }
     }
   }
+
+    companion object{
+        private const val TAG = "HomeViewModel"
+    }
 }

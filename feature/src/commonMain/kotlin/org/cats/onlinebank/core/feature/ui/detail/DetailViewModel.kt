@@ -19,7 +19,6 @@ import org.cats.onlinebank.core.feature.navigation.DestinationsArgs
 import org.cats.onlinebank.core.feature.ui.home.model.UiAccountModel
 import org.cats.onlinebank.core.feature.ui.home.model.toUiAccountModel
 
-private const val TAG = "DetailViewModel"
 class DetailViewModel(
     private val getAccountDetailUseCase: GetAccountDetailUseCase,
     private val appDispatchers: AppDispatchers,
@@ -35,15 +34,15 @@ class DetailViewModel(
 
         bankName?.let {
             accountId?.let {
-                Logger.e( "Error fetching data: $bankName, $accountId")
+                Logger.e(tag = TAG, messageString =  "Error fetching data: $bankName, $accountId")
 
                 fetchDetail(Pair(Utils.decode(bankName), Utils.decode(accountId)))
             } ?: run {
                 _uiState.update { OBResult.Failure(OBError(throwable = Throwable("Account ID is null"))) }
-                Logger.e( "Error fetching data: Account ID is null")
+                Logger.e( tag = TAG, messageString =  "Error fetching data: Account ID is null")
             }
         } ?: run {
-            Logger.e( "Error fetching data: Bank Name is null")
+            Logger.e( tag = TAG, messageString =  "Error fetching data: Bank Name is null")
             _uiState.update { OBResult.Failure(OBError(throwable = Throwable("Bank Name is null"))) }
         }
     }
@@ -53,7 +52,7 @@ class DetailViewModel(
       getAccountDetailUseCase(key)
           .flowOn(appDispatchers.io)
           .catch { throwable ->
-              Logger.e("Error fetching data:", throwable)
+              Logger.e(tag = TAG, messageString =  "Error fetching data:", throwable = throwable)
               _uiState.value = OBResult.Failure(OBError(throwable = Throwable("Error fetching data:")))
           }
           .collect { result ->
@@ -69,4 +68,8 @@ class DetailViewModel(
           }
     }
   }
+
+    companion object {
+        private const val TAG = "DetailViewModel"
+    }
 }

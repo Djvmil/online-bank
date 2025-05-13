@@ -33,25 +33,9 @@ tasks {
 
 gradlePlugin {
     plugins {
-        register("androidApplication") {
-            id = "cats.onlinebank.app"
-            implementationClass = "AppConventionPlugin"
-        }
-        register("androidAppCompose") {
-            id = "cats.onlinebank.app.compose"
-            implementationClass = "AppComposeConventionPlugin"
-        }
         register("androidAppKmp") {
             id = "cats.onlinebank.app.kmp"
             implementationClass = "AppKmpConventionPlugin"
-        }
-        register("androidLibrary") {
-            id = "cats.onlinebank.library"
-            implementationClass = "LibraryConventionPlugin"
-        }
-        register("androidLibraryCompose") {
-            id = "cats.onlinebank.library.compose"
-            implementationClass = "LibraryComposeConventionPlugin"
         }
         register("androidLibraryKmp") {
             id = "cats.onlinebank.library.kmp"
@@ -60,10 +44,6 @@ gradlePlugin {
         register("koin") {
             id = "cats.onlinebank.di.koin"
             implementationClass = "KoinConventionPlugin"
-        }
-        register("androidFlavors") {
-            id = "cats.onlinebank.app.flavors"
-            implementationClass = "AppFlavorsConventionPlugin"
         }
     }
 }

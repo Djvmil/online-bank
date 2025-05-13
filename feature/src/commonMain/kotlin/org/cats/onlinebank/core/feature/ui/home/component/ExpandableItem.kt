@@ -37,7 +37,8 @@ fun ExpandableItem(
     ) {
         BankHeader(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(end = 10.dp),
             label = item.name,
             amount = item.capital,
             isExpanded = isExpanded,
