@@ -26,7 +26,6 @@ class KoinConventionPlugin: Plugin<Project> {
 
                 "kspCommonMainMetadata"(libs.findLibrary("koin.ksp.compiler").get())
 
-                //"kspAndroid"(libs.findLibrary("koin.ksp.compiler").get())
                 "kspIosX64"(libs.findLibrary("koin.ksp.compiler").get())
                 "kspIosArm64"(libs.findLibrary("koin.ksp.compiler").get())
                 "kspIosSimulatorArm64"(libs.findLibrary("koin.ksp.compiler").get())

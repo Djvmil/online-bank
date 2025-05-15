@@ -16,10 +16,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import onlinebank.feature.generated.resources.Res
-import onlinebank.feature.generated.resources.baseline_expand_less_24
-import onlinebank.feature.generated.resources.expand_more
-import onlinebank.feature.generated.resources.feature_amount_value
+import org.cacts.onlinebank.feature.resources.Res
+import org.cacts.onlinebank.feature.resources.baseline_expand_less_24
+import org.cacts.onlinebank.feature.resources.expand_more
+import org.cacts.onlinebank.feature.resources.feature_amount_value
 import org.cats.onlinebank.core.common.utils.Utils.roundTo
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource

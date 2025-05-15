@@ -14,9 +14,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import onlinebank.feature.generated.resources.Res
-import onlinebank.feature.generated.resources.baseline_arrow_forward_ios_24
-import onlinebank.feature.generated.resources.feature_amount_value
+import org.cacts.onlinebank.feature.resources.Res
+import org.cacts.onlinebank.feature.resources.baseline_arrow_forward_ios_24
+import org.cacts.onlinebank.feature.resources.feature_amount_value
 import org.cats.onlinebank.core.common.utils.Utils.roundTo
 import org.cats.onlinebank.core.feature.ui.home.model.UiAccountModel
 import org.jetbrains.compose.resources.painterResource

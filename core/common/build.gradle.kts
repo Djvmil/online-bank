@@ -17,8 +17,10 @@ kotlin {
         }
     }
 
-    tasks.matching { it.name.startsWith("ksp") && it.name.contains("IosArm64") }.configureEach {
+    // KSP
+    tasks.matching {
+        it.name.contains("kspKotlinIosArm64") ||
+                (it.name.startsWith("ksp") && it.name.contains("KotlinAndroid") )}.configureEach {
         dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
     }
-
 }
