@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "org.cacts.onlinebank.feature"
+    namespace = "org.cats.onlinebank.feature"
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -38,11 +38,19 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.koin.compose.viewmodel.navigation)
+        }
+    }
+
+    // KSP
+    tasks.matching {
+        it.name.contains("kspKotlinIosArm64") ||
+                (it.name.startsWith("ksp") && it.name.contains("KotlinAndroid") )}.configureEach {
+        dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
     }
 }
 
-tasks.matching { it.name.startsWith("ksp") && it.name.contains("KotlinAndroid") }.configureEach {
-    dependsOn(tasks.named("kspCommonMainKotlinMetadata"))
-}
-
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "org.cacts.onlinebank.feature.resources"
+    generateResClass = always
 }

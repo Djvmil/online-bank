@@ -16,10 +16,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import onlinebank.feature.generated.resources.Res
-import onlinebank.feature.generated.resources.baseline_expand_less_24
-import onlinebank.feature.generated.resources.expand_more
-import onlinebank.feature.generated.resources.feature_amount_value
+import org.cacts.onlinebank.feature.resources.Res
+import org.cacts.onlinebank.feature.resources.baseline_expand_less_24
+import org.cacts.onlinebank.feature.resources.expand_more
+import org.cacts.onlinebank.feature.resources.feature_amount_value
 import org.cats.onlinebank.core.common.utils.Utils.roundTo
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -73,7 +73,7 @@ fun BankHeader(
 
         if (amount != null) {
             Text(
-                modifier = Modifier.weight(3f),
+                modifier = Modifier.weight(4f),
                 text = stringResource(Res.string.feature_amount_value, amount.roundTo(2)),
                 maxLines = 1,
                 style = TextStyle(
@@ -87,8 +87,8 @@ fun BankHeader(
         if (isExpanded != null) {
             Icon(
                 modifier = Modifier
-                    .weight(2f)
-                    .padding(horizontal = 20.dp)
+                    .weight(1f)
+                    .padding(horizontal = 1.dp)
                     .clickable { onExpandClick.invoke() },
                 painter = painterResource(
                     if (isExpanded == true)

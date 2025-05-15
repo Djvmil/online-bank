@@ -34,8 +34,6 @@ class DetailViewModel(
 
         bankName?.let {
             accountId?.let {
-                Logger.e(tag = TAG, messageString =  "Error fetching data: $bankName, $accountId")
-
                 fetchDetail(Pair(Utils.decode(bankName), Utils.decode(accountId)))
             } ?: run {
                 _uiState.update { OBResult.Failure(OBError(throwable = Throwable("Account ID is null"))) }
@@ -56,8 +54,6 @@ class DetailViewModel(
               _uiState.value = OBResult.Failure(OBError(throwable = Throwable("Error fetching data:")))
           }
           .collect { result ->
-              Logger.e( "$result")
-
               when (result) {
                   is OBResult.Loading ->  _uiState.value = OBResult.Loading
                   is OBResult.Failure -> {

@@ -26,12 +26,18 @@ internal fun Project.configureKotlinMultiplatform() {
         // https://kotlinlang.org/docs/whatsnew1820.html#new-approach-to-source-set-hierarchy
         applyDefaultHierarchyTemplate()
 
+        jvm()
         androidTarget()
-
-        // Configure iOS targets
-        iosX64()
-        iosArm64()
-        iosSimulatorArm64()
+        listOf(
+            iosX64(),
+            iosArm64(),
+            iosSimulatorArm64()
+        ).forEach { iosTarget ->
+            iosTarget.binaries.framework {
+                baseName = "ShareAppKit"
+                isStatic = true
+            }
+        }
 
         // Suppress 'expect'/'actual' classes are in Beta.
         targets.configureEach {

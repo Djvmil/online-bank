@@ -16,6 +16,8 @@ mokkeryVersion = "2.7.2"
 turbine = "1.2.0"
 ktor = "3.1.3"
 ktorfit = "2.5.1"
+hotpreviewVersion = "0.1.6"
+jewelVersion = "0.27.0"
 kotlinCompilerExtensionVersion = "1.5.12"
 
 [libraries]
@@ -51,6 +53,8 @@ ktorfit-lib = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-lib", vers
 ktorfit-converters-flow = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-converters-flow", version.ref = "ktorfit" }
 ktorfit-converters-call = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-converters-call", version.ref = "ktorfit" }
 ktorfit-converters-response = { group = "de.jensklingenberg.ktorfit", name = "ktorfit-converters-response", version.ref = "ktorfit" }
+compose-hotpreview = { group = "de.drick.compose", name = "hotpreview", version.ref = "ktorfit" }
+jewel = { group = "org.jetbrains.jewel", name = "jewel-int-ui-standalone-compose-1.7.3", version.ref = "jewelVersion" }
 
 mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }

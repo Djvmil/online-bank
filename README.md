@@ -13,15 +13,15 @@ Cats OnlineBank est une application multiplateforme développée en Kotlin Multi
 - **Android Studio** : Version 2024.3.1 Patch 1 (Meerkat) ou supérieure.
 - **Kotlin** : Version 2.1.20.
 - **Gradle** : Version 8.9.2.
-- **Cocoapods** : Version 1.0.0 ou supérieure (pour iOS).
 
 ## Liste des tâches restantes
 
 - [x] Migration des cibles iOS (`iosX64`, `iosArm64`, `iosSimulatorArm64`)
 - [x] Ajout de la version pour Cocoapods dans le fichier `build.gradle.kts`
-- [ ] Résolution des problèmes liés à la tâche `:core:common:kspKotlinIosArm6
+- [x] Résolution des problèmes liés à la tâche `:core:common:kspKotlinIosArm6`
+- [ ] Fix all tests Tests
 - [x] Tests finaux sur le plateforme Android
-- [ ] Tests finaux sur le plateforme iOS
+- [x] Tests finaux sur le plateforme iOS
 
 ## Installation
 1. Clonez le dépôt :
